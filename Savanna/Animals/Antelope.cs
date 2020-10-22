@@ -9,6 +9,8 @@ namespace Savanna
         public Antelope()
         {
             IsHerbivore = true;
+            VisionRange = 5;
+            MaxSpeed = 2;
         }
     }
 }

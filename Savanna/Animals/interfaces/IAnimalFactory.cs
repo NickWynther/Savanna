@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Savanna
 {
-    public class CarnivoreManager
+    public interface IAnimalFactory
     {
+        public IAnimal Create(Field field, AnimalType type);
     }
 }

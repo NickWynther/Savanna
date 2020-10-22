@@ -9,6 +9,8 @@ namespace Savanna
         public Lion()
         {
             IsHerbivore = false;
+            VisionRange = 6;
+            MaxSpeed = 3;
         }
     }
 }

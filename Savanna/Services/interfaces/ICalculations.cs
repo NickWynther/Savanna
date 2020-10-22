@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Savanna
 {
-    public class AnimalManager
+    public interface ICalculations
     {
+        public double Distance(IAnimal current, IAnimal target);
     }
 }

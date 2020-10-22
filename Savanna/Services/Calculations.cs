@@ -10,6 +10,6 @@ namespace Savanna
             => Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
 
         public double Distance(IAnimal current, IAnimal target)
-            => Distance(current.PosX, target.PosX, current.PosY, target.PosY);
+            => Distance(current.Position.X, target.Position.X, current.Position.Y, target.Position.Y);
     }
 }

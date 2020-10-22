@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Savanna
 {
-    public class HerbivoreManager
+    public interface IValidator
     {
+        bool PositionIsTaken(Field field, Position position);
     }
 }
