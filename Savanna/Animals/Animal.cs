@@ -4,16 +4,24 @@ using System.Text;
 
 namespace Savanna
 {
-    public abstract class Animal : IAnimal
+    public abstract class Animal /*: IAnimal*/
     {
-        public float Health { get; set; }
+        protected Animal(float health, bool isHerbivore, int visionRange, int maxSpeed)
+        {
+            Health = health;
+            IsHerbivore = isHerbivore;
+            VisionRange = visionRange;
+            MaxSpeed = maxSpeed;
+        }
+
+        public float Health { get; private set; }
         public bool Alive { get => Health > 0; }
-        public bool IsHerbivore { get; set; }
-        public IAnimal ClosestEnemy { get; set; }
-        public IAnimal ClosestFriend { get; set; }
+        public bool IsHerbivore { get; private set; }
+        public Animal ClosestEnemy { get; set; }
+        public Animal ClosestFriend { get; set; }
         public int MatingCount { get; set; }
-        public int VisionRange { get; set; }
+        public int VisionRange { get; private set; }
         public Position Position { get; set ; }
-        public int MaxSpeed { get; set; }
+        public int MaxSpeed { get; private set; }
     }
 }

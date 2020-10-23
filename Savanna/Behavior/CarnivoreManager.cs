@@ -8,7 +8,7 @@ namespace Savanna
     {
         public void Move(Field field)
         {
-            foreach (var carnivore in field.CarnivoreList)
+            foreach (var carnivore in field.Carnivores)
             {
                 if (carnivore.ClosestEnemy == null)
                 {

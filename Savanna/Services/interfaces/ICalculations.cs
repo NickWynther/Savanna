@@ -6,6 +6,6 @@ namespace Savanna
 {
     public interface ICalculations
     {
-        public double Distance(IAnimal current, IAnimal target);
+        public double Distance(Animal current, Animal target);
     }
 }

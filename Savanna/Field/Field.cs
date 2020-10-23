@@ -15,10 +15,10 @@ namespace Savanna
 
         public int Height { get; set; }
         public int Width { get; set; }
-        public List<IAnimal> Animals { get; set; }
+        public List<Animal> Animals { get; set; }
         public bool HasFreeSpace { get => Animals.Count < Height * Width; }
 
-        public List<IAnimal> CarnivoreList { get => Animals.FindAll(a=>!a.IsHerbivore);}
-        public List<IAnimal> HerbivoreList { get => Animals.FindAll(a=>a.IsHerbivore);}
+        public List<Animal> Carnivores { get => Animals.FindAll(a=>!a.IsHerbivore);}
+        public List<Animal> Herbivores { get => Animals.FindAll(a=>a.IsHerbivore);}
     }
 }

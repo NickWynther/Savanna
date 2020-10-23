@@ -15,9 +15,9 @@ namespace Savanna
             _validator = validator;
         }
 
-        public IAnimal Create(Field field, AnimalType type )
+        public Animal Create(Field field, AnimalType type )
         {
-            IAnimal animal = type switch
+            Animal animal = type switch
             {
                 AnimalType.Antelope => new Antelope(),
                 AnimalType.Lion => new Lion(),

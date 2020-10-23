@@ -6,11 +6,9 @@ namespace Savanna
 {
     public class Lion : Animal
     {
-        public Lion()
+        public Lion() : base(health:100,isHerbivore:false,visionRange:6,maxSpeed:3)
         {
-            IsHerbivore = false;
-            VisionRange = 6;
-            MaxSpeed = 3;
+            
         }
     }
 }

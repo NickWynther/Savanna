@@ -15,11 +15,11 @@ namespace Savanna
 
         public void LocateEnemies(Field field)
         {
-            LocateEnemiesForOneSpecie(field.CarnivoreList, field.HerbivoreList);
-            LocateEnemiesForOneSpecie(field.HerbivoreList, field.CarnivoreList);
+            LocateEnemiesForOneSpecie(field.Carnivores, field.Herbivores);
+            LocateEnemiesForOneSpecie(field.Herbivores, field.Carnivores);
         }
 
-        private void LocateEnemiesForOneSpecie(List<IAnimal> FriendsList , List<IAnimal> EnemiesList)
+        private void LocateEnemiesForOneSpecie(List<Animal> FriendsList , List<Animal> EnemiesList)
         {
             foreach (var currentAnimal in FriendsList)
             {
