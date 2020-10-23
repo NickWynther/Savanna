@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Savanna
@@ -18,7 +19,7 @@ namespace Savanna
         public List<Animal> Animals { get; set; }
         public bool HasFreeSpace { get => Animals.Count < Height * Width; }
 
-        public List<Animal> Carnivores { get => Animals.FindAll(a=>!a.IsHerbivore);}
-        public List<Animal> Herbivores { get => Animals.FindAll(a=>a.IsHerbivore);}
+        public List<Carnivore> Carnivores { get => Animals.OfType<Carnivore>().ToList(); }
+        public List<Herbivore> Herbivores { get => Animals.OfType<Herbivore>().ToList(); }
     }
 }

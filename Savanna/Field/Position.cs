@@ -14,5 +14,18 @@ namespace Savanna
 
         public int X { get; set; }
         public int Y { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType()) return false;
+
+            Position pos = (Position)obj;
+            return (this.X == pos.X && this.Y == pos.Y);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(X, Y);
+        }
     }
 }

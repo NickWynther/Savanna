@@ -7,9 +7,9 @@ namespace Savanna
     public class AnimalFactory : IAnimalFactory
     {
         private IRandom _random;
-        private IValidator _validator;
+        private IPositionValidator _validator;
 
-        public AnimalFactory(IRandom random , IValidator validator)
+        public AnimalFactory(IRandom random , IPositionValidator validator)
         {
             _random = random;
             _validator = validator;
@@ -35,7 +35,7 @@ namespace Savanna
                 throw new InvalidOperationException("Field has no free space");
             }
 
-            Position newPosition = null;
+            Position newPosition;
 
             do
             {

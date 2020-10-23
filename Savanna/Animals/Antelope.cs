@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Savanna
 {
-    public class Antelope : Animal
+    public class Antelope : Herbivore
     {
-        public Antelope() : base(health:100,isHerbivore:true,visionRange:5,maxSpeed:2)
+        public Antelope() : base(health:100, visionRange:5, maxSpeed:2)
         {
 
         }

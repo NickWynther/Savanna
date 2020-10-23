@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Savanna
 {
-    public class Lion : Animal
+    public class Lion : Carnivore
     {
-        public Lion() : base(health:100,isHerbivore:false,visionRange:6,maxSpeed:3)
+        public Lion() : base(health:100, visionRange:6, maxSpeed:3)
         {
             
         }
