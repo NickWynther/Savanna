@@ -12,8 +12,24 @@ namespace Savanna
             Y = y;
         }
 
+        public Position()
+        {
+        }
+
         public int X { get; set; }
         public int Y { get; set; }
+
+        public Position Clone()
+        {
+            return new Position(X, Y);
+        }
+
+        public Position Add(Position step)
+        {
+            X += step.X;
+            Y += step.Y;
+            return this;
+        }
 
         public override bool Equals(object obj)
         {

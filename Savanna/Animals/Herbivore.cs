@@ -6,8 +6,8 @@ namespace Savanna
 {
     public abstract class Herbivore : Animal
     {
-        public Herbivore(float health , int visionRange , int maxSpeed ) : 
-            base(health, visionRange, maxSpeed)
+        public Herbivore(float health, int visionRange, int maxSpeed, char symbol  ) : 
+            base(health, visionRange, maxSpeed, symbol)
         {
 
         }

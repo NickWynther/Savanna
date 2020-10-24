@@ -6,5 +6,6 @@ namespace Savanna
 {
     public interface ICarnivoreManager
     {
+        public void Move(Field field);
     }
 }

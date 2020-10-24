@@ -37,13 +37,14 @@ namespace Savanna
         private void MoveWithEnemy(Carnivore carnivore, Field field)
         {
             var minDistance = double.MaxValue;
-            int bestStepX = 0, bestStepY = 0;
+            var bestStep = new Position(0,0);
+            var nextStep = new Position();
 
-            for (int stepX=-carnivore.MaxSpeed; stepX <= carnivore.MaxSpeed; stepX++)
+            for (nextStep.X =-carnivore.MaxSpeed; nextStep.X <= carnivore.MaxSpeed; nextStep.X++)
             {
-                for (int stepY = -carnivore.MaxSpeed; stepY <= carnivore.MaxSpeed; stepY++)
+                for (nextStep.Y = -carnivore.MaxSpeed; nextStep.Y <= carnivore.MaxSpeed; nextStep.Y++)
                 {
-                    var newPosition = new Position(carnivore.Position.X + stepX, carnivore.Position.Y + stepY);
+                    var newPosition = carnivore.Position.Clone().Add(nextStep);
 
                     if (!_validator.PositionIsOutOfField(field, newPosition) 
                         && (!_validator.PositionIsTakenByCarnivore(field , newPosition) || carnivore.Position.Equals(newPosition)))
@@ -52,8 +53,7 @@ namespace Savanna
                         if (distance < minDistance)
                         {
                             minDistance = distance;
-                            bestStepX = stepX;
-                            bestStepY = stepY;
+                            bestStep = nextStep.Clone();
                             if (carnivore.ClosestEnemy.Position.Equals(newPosition))
                             {
                                 break;
@@ -63,7 +63,7 @@ namespace Savanna
                 }
             }
             
-            carnivore.MakeStep(bestStepX, bestStepY);
+            carnivore.MakeStep(bestStep);
             if (carnivore.Position.Equals(carnivore.ClosestEnemy.Position))
             {
                 carnivore.Eat((Herbivore)carnivore.ClosestEnemy);
@@ -72,19 +72,18 @@ namespace Savanna
 
         private void MoveWithoutEnemy(Animal carnivore , Field field)
         {
-            int stepX, stepY;
+            Position nextStep;
             bool moveIsValide;
             do
             {
-                stepX = _random.Get(-carnivore.MaxSpeed, carnivore.MaxSpeed);
-                stepY = _random.Get(-carnivore.MaxSpeed, carnivore.MaxSpeed);
-                var newPosition = new Position(carnivore.Position.X + stepX, carnivore.Position.Y + stepY);
+                nextStep = _random.GetRandomStep(carnivore.MaxSpeed);
+                var newPosition = nextStep.Clone().Add(carnivore.Position);
                 moveIsValide = !_validator.PositionIsOutOfField(field, newPosition) && 
                     (!_validator.PositionIsTaken(field, newPosition) || carnivore.Position.Equals(newPosition));
 
             } while (!moveIsValide);
 
-            carnivore.MakeStep(stepX, stepY);
+            carnivore.MakeStep(nextStep);
         }
     }
 }

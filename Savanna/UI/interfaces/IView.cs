@@ -6,5 +6,6 @@ namespace Savanna
 {
     public interface IView
     {
+        void Display(Field field);
     }
 }

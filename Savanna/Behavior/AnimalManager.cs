@@ -9,24 +9,37 @@ namespace Savanna
     {
         private ICalculations _calculations;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="calculations"></param>
         public AnimalManager(ICalculations calculations)
         {
             _calculations = calculations;
         }
 
+        /// <summary>
+        /// Locate closest enemy for every animal on field.
+        /// </summary>
+        /// <param name="field">Game field</param>
         public void LocateEnemies(Field field)
         {
-            LocateEnemiesForOneSpecie(field.Carnivores.OfType<Animal>(), field.Herbivores.OfType<Animal>());
-            LocateEnemiesForOneSpecie(field.Herbivores.OfType<Animal>(), field.Carnivores.OfType<Animal>());
+            var carnivores = field.Carnivores.Cast<Animal>();
+            var herbivores = field.Herbivores.Cast<Animal>();
+            LocateEnemiesForOneSpecie(carnivores, herbivores);
+            LocateEnemiesForOneSpecie(herbivores, carnivores);
         }
 
+        /// <summary>
+        /// For every animal in 'FriendsList' locate closest animal in 'EnemiesList'
+        /// </summary>
         private void LocateEnemiesForOneSpecie(IEnumerable<Animal> FriendsList , IEnumerable<Animal> EnemiesList)
         {
             foreach (var currentAnimal in FriendsList)
             {
                 currentAnimal.ClosestEnemy = null;
                 var minDistance = double.MaxValue;
-
+                
                 foreach (var enemy in EnemiesList)
                 {
                     var distance = _calculations.Distance(currentAnimal, enemy);
@@ -38,5 +51,9 @@ namespace Savanna
                 }
             }
         }
+
+        public void RemoveCorpses(Field field) 
+            =>field.Animals.RemoveAll(a => a.Alive == false);
+
     }
 }

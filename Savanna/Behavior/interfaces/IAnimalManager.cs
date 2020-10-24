@@ -7,5 +7,6 @@ namespace Savanna
     public interface IAnimalManager
     {
         void LocateEnemies(Field field);
+        void RemoveCorpses(Field field);
     }
 }

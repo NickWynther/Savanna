@@ -8,5 +8,7 @@ namespace Savanna
     {
         public int Get(int fromInclusive, int toInclusive);
         public int Get(int toExclusive);
+        public Position GetRandomStep(int speed);
+
     }
 }

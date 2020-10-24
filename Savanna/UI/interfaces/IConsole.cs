@@ -6,9 +6,11 @@ namespace Savanna
 {
     public interface IConsole
     {
-        public bool KeyAvailable();
-        public ConsoleKey ConsoleKey();
-        public void SetCursorPosition(Position position);
+        bool KeyAvailable();
+        ConsoleKey ConsoleKey();
+        void SetCursorPosition(Position position);
+        void Clear();
+        void Write(char symbol);
 
     }
 }

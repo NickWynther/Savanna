@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Savanna
 {
-    public class ConsoleFacade 
+    public class ConsoleFacade : IConsole
     {
-        public bool KeyAvailable()
-            => Console.KeyAvailable;
+        public bool KeyAvailable() => Console.KeyAvailable;
  
-        public ConsoleKey ConsoleKey()
-            => Console.ReadKey(true).Key;
+        public ConsoleKey ConsoleKey() => Console.ReadKey(true).Key;
            
-        public void SetCursorPosition(Position position)
-            => Console.SetCursorPosition(position.X, position.Y);
-        
+        public void SetCursorPosition(Position position) => Console.SetCursorPosition(position.X, position.Y);
+
+        public void Clear() => Console.Clear();
+
+        public void Write(char symbol) => Console.Write(symbol);
     }
 }
