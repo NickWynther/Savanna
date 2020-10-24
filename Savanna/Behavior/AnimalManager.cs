@@ -58,5 +58,59 @@ namespace Savanna
         public void DecreaseHealth(Field field)
             => field.Animals.ForEach(animal => animal.DecreaseHealth());
 
+        public void FindPartners(Field field)
+        {
+            foreach (var currentAnimal in field.Animals)
+            {
+                //same with reflection ? currentAnimal.GetType().Name
+
+                var partnerList = field.Animals.Where(a => a.AnimalType == currentAnimal.AnimalType).ToList();
+                partnerList.Remove(currentAnimal);
+                Animal newClosestParter = null;
+                var minDistance = double.MaxValue;
+                foreach (var potentialPartner in partnerList)
+                {
+                    var distance = _calculations.Distance(currentAnimal, potentialPartner);
+                    if (distance <= currentAnimal.BreedingDistance && distance < minDistance)
+                    {
+                        minDistance = distance;
+                        newClosestParter = potentialPartner;
+                    }
+                }
+
+                if (currentAnimal.ClosestPartner == newClosestParter && newClosestParter!= null)
+                {
+                    currentAnimal.MatingCount += 1;
+                }
+                else if (newClosestParter!=null)
+                {
+                    currentAnimal.ClosestPartner = newClosestParter;
+                    currentAnimal.MatingCount = 1;
+                }
+                else
+                {
+                    currentAnimal.ClosestPartner = null;
+                    currentAnimal.MatingCount = 0;
+                }
+            }
+        }
+
+        public void GiveBirthToAnimal(Field field, IAnimalFactory animalFactory)
+        {
+            foreach(var animal in field.Animals)
+            {
+                if (animal.MatingCount == 3)
+                {
+                    animal.MatingCount = 0;
+
+                    if (animal.ClosestPartner.ClosestPartner == animal)
+                    {
+                        animal.ClosestPartner.MatingCount = 0;
+                    }
+
+                    animalFactory.Create(field, animal.AnimalType);
+                }
+            }
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace Savanna
             };
 
             animal.Position = GetFreePosition(field);
+            field.Animals.Add(animal);
             return animal;
         }
 

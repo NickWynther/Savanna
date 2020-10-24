@@ -11,6 +11,7 @@ namespace Savanna
         void SetCursorPosition(Position position);
         void Clear();
         void Write(char symbol);
+        ConsoleColor ForegroundColor { get; set; }
 
     }
 }

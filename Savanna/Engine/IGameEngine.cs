@@ -12,6 +12,7 @@ namespace Savanna
         /// <summary>
         /// Start game.
         /// </summary>
-        void Run();
+        /// <param name="speed">iteration speed in miliseconds</param>
+        void Run(int speed);
     }
 }

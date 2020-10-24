@@ -9,5 +9,7 @@ namespace Savanna
         void LocateEnemies(Field field);
         void RemoveCorpses(Field field);
         void DecreaseHealth(Field field);
+        public void FindPartners(Field field);
+        public void GiveBirthToAnimal(Field field, IAnimalFactory animalFactory);
     }
 }

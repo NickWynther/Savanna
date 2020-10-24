@@ -75,6 +75,7 @@ namespace Savanna
         private void DisplayAnimal(Animal animal)
         {
             _console.SetCursorPosition(animal.Position);
+            _console.ForegroundColor = animal is Herbivore ? ConsoleColor.Green : ConsoleColor.Red;
             _console.Write(animal.Symbol);
         }
 

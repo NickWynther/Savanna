@@ -6,8 +6,8 @@ namespace Savanna
 {
     public abstract class Carnivore : Animal
     {
-        public Carnivore(float maxHealth, int visionRange, int maxSpeed , char symbol) :
-           base(maxHealth, visionRange, maxSpeed , symbol)
+        public Carnivore(float maxHealth, int visionRange, int breedingDistance, int maxSpeed , AnimalType type) :
+           base(maxHealth, breedingDistance, visionRange, maxSpeed , type)
         {
             
         }

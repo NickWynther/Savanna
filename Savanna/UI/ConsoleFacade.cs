@@ -15,5 +15,7 @@ namespace Savanna
         public void Clear() => Console.Clear();
 
         public void Write(char symbol) => Console.Write(symbol);
+
+        public ConsoleColor ForegroundColor { get => Console.ForegroundColor; set => Console.ForegroundColor = value; }
     }
 }

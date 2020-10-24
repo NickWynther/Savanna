@@ -38,7 +38,8 @@ namespace Savanna
         /// Game start.
         /// Make new iteration every second. Handle user input.
         /// </summary>
-        public void Run()
+        /// <param name="speed">iteration speed in miliseconds</param>
+        public void Run(int speed)
         {
             while (true)
             {
@@ -46,7 +47,7 @@ namespace Savanna
                 {
                     HandlePlayerCommands();
                     Iteration();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(speed);
                 }
                 catch 
                 {
@@ -63,8 +64,7 @@ namespace Savanna
             while (_console.KeyAvailable())
             {
                 AnimalType type = (AnimalType)char.Parse(_console.ConsoleKey().ToString());
-                var newAnimal = _animalFactory.Create(_field, type);
-                _field.Animals.Add(newAnimal);
+                _animalFactory.Create(_field, type);
             }
         }
 
@@ -78,7 +78,8 @@ namespace Savanna
             _carnivoreManager.Move(_field);
             _animalManager.DecreaseHealth(_field);
             _animalManager.RemoveCorpses(_field);
-            // animal locateFriend for breeding
+            _animalManager.FindPartners(_field);
+            _animalManager.GiveBirthToAnimal(_field, _animalFactory);
             _view.Display(_field);
         }
     }
