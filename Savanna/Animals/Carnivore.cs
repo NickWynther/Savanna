@@ -6,8 +6,8 @@ namespace Savanna
 {
     public abstract class Carnivore : Animal
     {
-        public Carnivore(float health, int visionRange, int maxSpeed , char symbol) :
-           base(health, visionRange, maxSpeed , symbol)
+        public Carnivore(float maxHealth, int visionRange, int maxSpeed , char symbol) :
+           base(maxHealth, visionRange, maxSpeed , symbol)
         {
             
         }
@@ -20,8 +20,7 @@ namespace Savanna
             }
 
             victim.Die();
-            //increase healt to max
+            Health = MaxHealth;
         }
-
     }
 }

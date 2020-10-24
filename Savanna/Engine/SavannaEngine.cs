@@ -76,6 +76,7 @@ namespace Savanna
             _animalManager.LocateEnemies(_field);
             _herbivoreManager.Move(_field);
             _carnivoreManager.Move(_field);
+            _animalManager.DecreaseHealth(_field);
             _animalManager.RemoveCorpses(_field);
             // animal locateFriend for breeding
             _view.Display(_field);

@@ -8,5 +8,6 @@ namespace Savanna
     {
         void LocateEnemies(Field field);
         void RemoveCorpses(Field field);
+        void DecreaseHealth(Field field);
     }
 }

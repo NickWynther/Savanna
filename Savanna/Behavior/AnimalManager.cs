@@ -55,5 +55,8 @@ namespace Savanna
         public void RemoveCorpses(Field field) 
             =>field.Animals.RemoveAll(a => a.Alive == false);
 
+        public void DecreaseHealth(Field field)
+            => field.Animals.ForEach(animal => animal.DecreaseHealth());
+
     }
 }
