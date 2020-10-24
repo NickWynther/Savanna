@@ -6,15 +6,23 @@ namespace Savanna
 {
     public interface IPositionValidator
     {
-        bool PositionIsTaken(Field field, Position position);
+        /// <summary>
+        /// Check if position on field is taken by any animal.
+        /// </summary>
+        public bool PositionIsTaken(Field field, Position position);
 
-        bool ValidateMove(Field field, Animal animal, int stepX, int stepY);
+        /// <summary>
+        /// Check if position is out of field.
+        /// </summary>
+        public bool PositionIsOutOfField(Field field, Position position);
+        /// <summary>
+        /// Check if position on field is taken by carnivore.
+        /// </summary>
+        public bool PositionIsTakenByCarnivore(Field field, Position position);
 
-        bool PositionIsOutOfField(Field field, Position position);
-
-        bool PositionIsTakenByCarnivore(Field field, Position position);
-
+        /// <summary>
+        /// Check if position on field is taken by herbivore.
+        /// </summary>
         public bool PositionIsTakenByHerbivore(Field field, Position position);
-
     }
 }

@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Savanna
 {
+
+    /// <summary>
+    /// This class represents a pair of coordinates (x,y)
+    /// </summary>
     public class Position
     {
         public Position(int x, int y)
@@ -14,16 +18,23 @@ namespace Savanna
 
         public Position()
         {
+
         }
 
         public int X { get; set; }
         public int Y { get; set; }
 
+        /// <summary>
+        /// Create copy
+        /// </summary>
         public Position Clone()
         {
             return new Position(X, Y);
         }
 
+        /// <summary>
+        /// Apply (add) step for current position.
+        /// </summary>
         public Position Add(Position step)
         {
             X += step.X;

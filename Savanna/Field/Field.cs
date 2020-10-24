@@ -7,7 +7,7 @@ namespace Savanna
 {
     public class Field
     {
-        public Field(int width = 15, int height = 15)
+        public Field(int width = 25, int height = 15)
         {
             Width = width;
             Height = height;

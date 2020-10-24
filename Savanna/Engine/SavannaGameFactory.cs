@@ -4,9 +4,12 @@ using System.Text;
 
 namespace Savanna
 {
-    public class GameFactory
+    public class SavannaGameFactory
     {
-        public GameEngine CreateGame()
+        /// <summary>
+        /// Create SavannaEngine with injected dependecies.
+        /// </summary>
+        public static SavannaEngine CreateGame()
         {
             IConsole console = new ConsoleFacade();
             IRandom random = new Random();
@@ -18,7 +21,7 @@ namespace Savanna
             IHerbivoreManager herbivoreManager = new HerbivoreManager(random, validator, calculations);
             ICarnivoreManager carnivoreManager = new CarnivoreManager(random, validator, calculations);
 
-            return new GameEngine(animalFactory, animalManager, herbivoreManager, carnivoreManager, view, console);
+            return new SavannaEngine(animalFactory, animalManager, herbivoreManager, carnivoreManager, view, console);
         }
     }
 }

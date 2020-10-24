@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Savanna
 {
-    public class GameEngine
+    /// <summary>
+    /// Savanna game engine
+    /// </summary>
+    public class SavannaEngine : IGameEngine
     {
         private Field _field;
-
         private IConsole _console;
         private IAnimalFactory _animalFactory;
         private IAnimalManager _animalManager;
@@ -17,7 +19,10 @@ namespace Savanna
         private ICarnivoreManager _carnivoreManager;
         private IView _view;
 
-        public GameEngine(IAnimalFactory animalFactory, IAnimalManager animalmanager, 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public SavannaEngine(IAnimalFactory animalFactory, IAnimalManager animalmanager, 
             IHerbivoreManager herbivoreManager, ICarnivoreManager carnivoreManager, IView view , IConsole console)
         {
             _herbivoreManager = herbivoreManager;
@@ -29,19 +34,17 @@ namespace Savanna
             _field = new();
         }
 
+        /// <summary>
+        /// Game start.
+        /// Make new iteration every second. Handle user input.
+        /// </summary>
         public void Run()
         {
             while (true)
             {
                 try
                 {
-                    while (_console.KeyAvailable())
-                    {
-                        AnimalType type = (AnimalType)char.Parse(_console.ConsoleKey().ToString());
-                        var newAnimal = _animalFactory.Create(_field, type);
-                        _field.Animals.Add(newAnimal);
-                    }
-
+                    HandlePlayerCommands();
                     Iteration();
                     Thread.Sleep(1000);
                 }
@@ -52,6 +55,22 @@ namespace Savanna
             }
         }
 
+        /// <summary>
+        /// Add new animals on field if user press corresponding buttons.
+        /// </summary>
+        private void HandlePlayerCommands()
+        {
+            while (_console.KeyAvailable())
+            {
+                AnimalType type = (AnimalType)char.Parse(_console.ConsoleKey().ToString());
+                var newAnimal = _animalFactory.Create(_field, type);
+                _field.Animals.Add(newAnimal);
+            }
+        }
+
+        /// <summary>
+        /// Game basic iteration.
+        /// </summary>
         private void Iteration()
         {
             _animalManager.LocateEnemies(_field);
