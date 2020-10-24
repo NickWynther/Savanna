@@ -78,20 +78,25 @@ namespace Savanna
                     }
                 }
 
-                if (currentAnimal.ClosestPartner == newClosestParter && newClosestParter!= null)
-                {
-                    currentAnimal.MatingCount += 1;
-                }
-                else if (newClosestParter!=null)
-                {
-                    currentAnimal.ClosestPartner = newClosestParter;
-                    currentAnimal.MatingCount = 1;
-                }
-                else
-                {
-                    currentAnimal.ClosestPartner = null;
-                    currentAnimal.MatingCount = 0;
-                }
+                CountMatings(currentAnimal, newClosestParter);
+            }
+        }
+
+        private static void CountMatings(Animal currentAnimal, Animal newClosestParter)
+        {
+            if (newClosestParter == null)
+            {
+                currentAnimal.ClosestPartner = null;
+                currentAnimal.MatingCount = 0;
+            }
+            else if (currentAnimal.ClosestPartner == newClosestParter)
+            {
+                currentAnimal.MatingCount += 1;
+            }
+            else
+            {
+                currentAnimal.ClosestPartner = newClosestParter;
+                currentAnimal.MatingCount = 1;
             }
         }
 

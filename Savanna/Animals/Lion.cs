@@ -6,7 +6,7 @@ namespace Savanna
 {
     public class Lion : Carnivore
     {
-        public Lion() : base(maxHealth:100, visionRange:6, breedingDistance:1, maxSpeed:3, AnimalType.Lion)
+        public Lion() : base(maxHealth:100, visionRange:6, breedingDistance:2, maxSpeed:3, AnimalType.Lion)
         {
             
         }
