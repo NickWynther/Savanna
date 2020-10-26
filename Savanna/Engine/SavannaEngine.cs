@@ -22,8 +22,8 @@ namespace Savanna
         /// <summary>
         /// Default constructor
         /// </summary>
-        public SavannaEngine(IAnimalFactory animalFactory, IAnimalManager animalmanager, 
-            IHerbivoreManager herbivoreManager, ICarnivoreManager carnivoreManager, IView view , IConsole console)
+        public SavannaEngine(IAnimalFactory animalFactory, IAnimalManager animalmanager,
+            IHerbivoreManager herbivoreManager, ICarnivoreManager carnivoreManager, IView view, IConsole console)
         {
             _herbivoreManager = herbivoreManager;
             _carnivoreManager = carnivoreManager;
