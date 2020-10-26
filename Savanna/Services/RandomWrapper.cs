@@ -8,9 +8,8 @@ namespace Savanna
     /// <summary>
     /// Game random generator.
     /// </summary>
-    public class Random : IRandom
+    public class RandomWrapper : IRandom
     {
-
         /// <summary>
         /// Get random integer between a specified inclusive lower bound and a specifed inclusive upper bound.
         /// </summary>
@@ -23,7 +22,6 @@ namespace Savanna
         public int Get(int toExclusive)
            => RandomNumberGenerator.GetInt32(0, toExclusive);
 
-        
         /// <summary>
         ///  Create random animal step with specified speed.
         /// </summary>

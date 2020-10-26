@@ -4,12 +4,21 @@ using System.Text;
 
 namespace Savanna
 {
+    /// <summary>
+    /// Harbivore animals behavior manager.
+    /// </summary>
     public class HerbivoreManager : IHerbivoreManager
     {
         private IRandom _random;
         private IPositionValidator _validator;
         private ICalculations _calculations;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="random">Random generator for new step creation.</param>
+        /// <param name="validator"> Psotion validator.</param>
+        /// <param name="calculations"> Game math.</param>
         public HerbivoreManager(IRandom random, IPositionValidator validator, ICalculations calculations)
         {
             _random = random;
@@ -17,24 +26,24 @@ namespace Savanna
             _calculations = calculations;
         }
 
+        /// <summary>
+        /// Every herbivore on a field make move.
+        /// </summary>
         public void Move(Field field)
         {
             foreach (var herbivore in field.Herbivores)
             {
-                if (herbivore.ClosestEnemy == null)
-                {
-                    MoveWithoutEnemy(herbivore, field);
-                }
-                else
-                {
-                    MoveWithEnemy(herbivore, field);
-                }
+                Position nextStep = herbivore.HasEnemy ?
+                    FindBestStepToEscape(herbivore, field) : GetRandomStep(herbivore, field);
 
-                //Decrease health;
+                herbivore.MakeStep(nextStep);
             }
         }
 
-        private void MoveWithEnemy(Herbivore herbivore, Field field)
+        /// <summary>
+        /// Find best step for escaping
+        /// </summary>
+        private Position FindBestStepToEscape(Herbivore herbivore, Field field)
         {
             var maxDistance = double.MinValue;
             var bestStep = new Position(0, 0);
@@ -59,10 +68,13 @@ namespace Savanna
                 }
             }
 
-            herbivore.MakeStep(bestStep);
+            return bestStep;
         }
 
-        private void MoveWithoutEnemy(Herbivore herbivore, Field field)
+        /// <summary>
+        /// Get step in a random direction
+        /// </summary>
+        private Position GetRandomStep(Herbivore herbivore, Field field)
         {
             Position nextStep;
             bool moveIsValide;
@@ -74,8 +86,7 @@ namespace Savanna
                     (!_validator.PositionIsTaken(field, newPosition) || herbivore.Position.Equals(newPosition));
 
             } while (!moveIsValide);
-
-            herbivore.MakeStep(nextStep);
+            return nextStep;
         }
     }
 }

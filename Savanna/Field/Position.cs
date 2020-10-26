@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Savanna
 {
-
     /// <summary>
     /// This class represents a pair of coordinates (x,y)
     /// </summary>

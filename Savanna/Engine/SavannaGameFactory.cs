@@ -11,8 +11,8 @@ namespace Savanna
         /// </summary>
         public static SavannaEngine CreateGame()
         {
-            IConsole console = new ConsoleFacade();
-            IRandom random = new Random();
+            IConsole console = new ConsoleWrapper();
+            IRandom random = new RandomWrapper();
             ICalculations calculations = new Calculations();
             IPositionValidator validator = new Validator();
             IView view = new GameView(console);

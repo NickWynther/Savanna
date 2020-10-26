@@ -36,7 +36,7 @@ namespace Savanna
 
         /// <summary>
         /// Game start.
-        /// Make new iteration every second. Handle user input.
+        /// Make new iteration with specified speed. Handle user input.
         /// </summary>
         /// <param name="speed">iteration speed in miliseconds</param>
         public void Run(int speed)
@@ -46,7 +46,7 @@ namespace Savanna
                 try
                 {
                     HandlePlayerCommands();
-                    Iteration();
+                    GameIteration();
                     Thread.Sleep(speed);
                 }
                 catch 
@@ -71,12 +71,12 @@ namespace Savanna
         /// <summary>
         /// Game basic iteration.
         /// </summary>
-        private void Iteration()
+        private void GameIteration()
         {
             _animalManager.LocateEnemies(_field);
             _herbivoreManager.Move(_field);
             _carnivoreManager.Move(_field);
-            _animalManager.DecreaseHealth(_field);
+            _animalManager.DecreaseHealth(_field , 0.5f);
             _animalManager.RemoveCorpses(_field);
             _animalManager.FindPartners(_field);
             _animalManager.GiveBirthToAnimal(_field, _animalFactory);

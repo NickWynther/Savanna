@@ -5,13 +5,11 @@ using System.Text;
 
 namespace Savanna
 {
-
     /// <summary>
     /// Position validator. 
     /// </summary>
     public class Validator : IPositionValidator
     {
-
         /// <summary>
         /// Check if position on field is taken by any animal.
         /// </summary>

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Savanna
 {
+    /// <summary>
+    /// All animals behavior manager.
+    /// </summary>
     public class AnimalManager : IAnimalManager
     {
         private ICalculations _calculations;
@@ -12,7 +15,7 @@ namespace Savanna
         /// <summary>
         /// Default constructor.
         /// </summary>
-        /// <param name="calculations"></param>
+        /// <param name="calculations">Game math</param>
         public AnimalManager(ICalculations calculations)
         {
             _calculations = calculations;
@@ -52,18 +55,27 @@ namespace Savanna
             }
         }
 
+
+        /// <summary>
+        /// Remove all dead animals from field.
+        /// </summary>
         public void RemoveCorpses(Field field) 
             =>field.Animals.RemoveAll(a => a.Alive == false);
 
-        public void DecreaseHealth(Field field)
-            => field.Animals.ForEach(animal => animal.DecreaseHealth());
 
+        /// <summary>
+        /// Decrease health value for every animal on field.
+        /// </summary>
+        public void DecreaseHealth(Field field , float decreaseValue)
+            => field.Animals.ForEach(animal => animal.DecreaseHealth(decreaseValue));
+
+        /// <summary>
+        /// Locate closest partner for breeding.
+        /// </summary>
         public void FindPartners(Field field)
         {
             foreach (var currentAnimal in field.Animals)
             {
-                //same with reflection ? currentAnimal.GetType().Name
-
                 var partnerList = field.Animals.Where(a => a.AnimalType == currentAnimal.AnimalType).ToList();
                 partnerList.Remove(currentAnimal);
                 Animal newClosestParter = null;
@@ -82,6 +94,9 @@ namespace Savanna
             }
         }
 
+        /// <summary>
+        /// Check if partner is stil same. Calculate mating count. 
+        /// </summary>
         private static void CountMatings(Animal currentAnimal, Animal newClosestParter)
         {
             if (newClosestParter == null)
@@ -100,6 +115,9 @@ namespace Savanna
             }
         }
 
+        /// <summary>
+        /// Check every animal if its mating count is equal to 3, create new animal on a field.
+        /// </summary>
         public void GiveBirthToAnimal(Field field, IAnimalFactory animalFactory)
         {
             foreach(var animal in field.Animals)

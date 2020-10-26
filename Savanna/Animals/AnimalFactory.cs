@@ -4,17 +4,32 @@ using System.Text;
 
 namespace Savanna
 {
+    /// <summary>
+    /// This class is used to create new animals on a field.
+    /// </summary>
     public class AnimalFactory : IAnimalFactory
     {
         private IRandom _random;
         private IPositionValidator _validator;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="random">Random generator for initial position creating.</param>
+        /// <param name="validator">Position validator</param>
         public AnimalFactory(IRandom random , IPositionValidator validator)
         {
             _random = random;
             _validator = validator;
         }
 
+
+        /// <summary>
+        /// Create new animal and  add it to field.
+        /// </summary>
+        /// <param name="field">Field where to place new animal.</param>
+        /// <param name="type">Animal specie.</param>
+        /// <returns>New animal.</returns>
         public Animal Create(Field field, AnimalType type )
         {
             Animal animal = type switch
