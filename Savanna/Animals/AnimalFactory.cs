@@ -23,7 +23,6 @@ namespace Savanna
             _validator = validator;
         }
 
-
         /// <summary>
         /// Create new animal and  add it to field.
         /// </summary>
@@ -44,6 +43,9 @@ namespace Savanna
             return animal;
         }
 
+        /// <summary>
+        /// Get free position on the field. If field is full , throw InvalidOperationException.
+        /// </summary>
         private Position GetFreePosition(Field field)
         {
             if (field.HasFreeSpace == false)
