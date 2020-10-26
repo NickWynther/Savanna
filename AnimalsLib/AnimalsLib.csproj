@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RandomLib\RandomLib.csproj" />
+    <ProjectReference Include="..\PositionLib\PositionLib.csproj" />
   </ItemGroup>
 
 </Project>
