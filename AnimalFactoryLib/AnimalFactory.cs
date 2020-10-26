@@ -35,6 +35,7 @@ namespace Savanna
             {
                 AnimalType.Antelope => new Antelope(),
                 AnimalType.Lion => new Lion(),
+                AnimalType.Rabbit => new Rabbit(),
                 _ => throw new InvalidOperationException("Incorect animal type")
             };
 

@@ -9,7 +9,6 @@ namespace Savanna
     /// </summary>
     public abstract class Animal
     {
-
         /// <summary>
         /// Default constructor.
         /// </summary>

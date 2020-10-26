@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savanna", "Savanna\Savanna.csproj", "{035697DA-5EA8-403D-BD2D-B4F36AA9F90B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Savanna", "Savanna\Savanna.csproj", "{035697DA-5EA8-403D-BD2D-B4F36AA9F90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalsLib", "AnimalsLib\AnimalsLib.csproj", "{58A20DA3-C19D-4B5C-85FF-E77C02C644A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldLib", "FieldLib\FieldLib.csproj", "{FFF6EBE0-44E2-423A-948F-D1765A7F8B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomLib", "RandomLib\RandomLib.csproj", "{FC27F5E7-AF8F-4AA8-8C99-973FEB259001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositionLib", "PositionLib\PositionLib.csproj", "{7D7C2179-93FC-44B0-9A5D-4C399A376868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositionValidatorLib", "PositionValidatorLib\PositionValidatorLib.csproj", "{20A19736-0852-40AE-9149-D7C5A6932178}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalFactoryLib", "AnimalFactoryLib\AnimalFactoryLib.csproj", "{F615FEA6-2986-4731-981A-4C92A4AEBB26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +27,30 @@ Global
 		{035697DA-5EA8-403D-BD2D-B4F36AA9F90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035697DA-5EA8-403D-BD2D-B4F36AA9F90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035697DA-5EA8-403D-BD2D-B4F36AA9F90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A20DA3-C19D-4B5C-85FF-E77C02C644A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A20DA3-C19D-4B5C-85FF-E77C02C644A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A20DA3-C19D-4B5C-85FF-E77C02C644A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A20DA3-C19D-4B5C-85FF-E77C02C644A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF6EBE0-44E2-423A-948F-D1765A7F8B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF6EBE0-44E2-423A-948F-D1765A7F8B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF6EBE0-44E2-423A-948F-D1765A7F8B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF6EBE0-44E2-423A-948F-D1765A7F8B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC27F5E7-AF8F-4AA8-8C99-973FEB259001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC27F5E7-AF8F-4AA8-8C99-973FEB259001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC27F5E7-AF8F-4AA8-8C99-973FEB259001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC27F5E7-AF8F-4AA8-8C99-973FEB259001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D7C2179-93FC-44B0-9A5D-4C399A376868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7C2179-93FC-44B0-9A5D-4C399A376868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7C2179-93FC-44B0-9A5D-4C399A376868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7C2179-93FC-44B0-9A5D-4C399A376868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A19736-0852-40AE-9149-D7C5A6932178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A19736-0852-40AE-9149-D7C5A6932178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A19736-0852-40AE-9149-D7C5A6932178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A19736-0852-40AE-9149-D7C5A6932178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F615FEA6-2986-4731-981A-4C92A4AEBB26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F615FEA6-2986-4731-981A-4C92A4AEBB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F615FEA6-2986-4731-981A-4C92A4AEBB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F615FEA6-2986-4731-981A-4C92A4AEBB26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

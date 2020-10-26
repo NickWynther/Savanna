@@ -10,6 +10,7 @@ namespace Savanna
     public enum AnimalType
     {
         Lion ='L',
-        Antelope = 'A'
+        Antelope = 'A',
+        Rabbit = 'R',
     }
 }

@@ -1,18 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.3.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AnimalFactoryLib\AnimalFactoryLib.csproj" />
     <ProjectReference Include="..\AnimalsLib\AnimalsLib.csproj" />
+    <ProjectReference Include="..\FieldLib\FieldLib.csproj" />
     <ProjectReference Include="..\PositionValidatorLib\PositionValidatorLib.csproj" />
     <ProjectReference Include="..\RandomLib\RandomLib.csproj" />
   </ItemGroup>
