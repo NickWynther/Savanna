@@ -36,23 +36,32 @@ namespace Savanna
 
         /// <summary>
         /// Game start.
-        /// Make new iteration with specified speed. Handle user input.
+        /// Call GameSycle in a loop.
         /// </summary>
-        /// <param name="speed">iteration speed in miliseconds</param>
+        /// <param name="speed">GameCycle speed in miliseconds</param>
         public void Run(int speed)
         {
             while (true)
             {
-                try
-                {
-                    HandlePlayerCommands();
-                    GameIteration();
-                    Thread.Sleep(speed);
-                }
-                catch 
-                {
-                    //display error
-                }
+                GameCycle(speed);
+            }
+        }
+
+        /// <summary>
+        /// Make new game iteration. Handle user input. 
+        /// </summary>
+        /// <param name="speed">iteration speed in miliseconds</param>
+        public void GameCycle(int speed)
+        {
+            try
+            {
+                HandlePlayerCommands();
+                GameManipulations();
+                Thread.Sleep(speed);
+            }
+            catch
+            {
+                //display error
             }
         }
 
@@ -71,7 +80,7 @@ namespace Savanna
         /// <summary>
         /// Game basic iteration.
         /// </summary>
-        private void GameIteration()
+        private void GameManipulations()
         {
             _animalManager.LocateEnemies(_field);
             _herbivoreManager.Move(_field);
