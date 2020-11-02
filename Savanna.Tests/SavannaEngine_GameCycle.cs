@@ -46,6 +46,5 @@ namespace Savanna.Tests
 
             act.Should().NotThrow();
         }
-
     }
 }
